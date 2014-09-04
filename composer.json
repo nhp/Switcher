@@ -1,0 +1,14 @@
+{
+  "name": "tzyganu/Switcher",
+  "licence": "mit",
+  "type": "magento-module",
+  "description": "color swatch",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }, 
+  "authors":[
+    {"name": "tzyganu",
+      "email":"n.preuss@sportlaedchen.de"
+    }
+  ]
+}
