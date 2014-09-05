@@ -28,7 +28,7 @@ $checkVersion = ($isEE)? '1.14': '1.9';
 if (version_compare(Mage::getVersion(), $checkVersion, '>=')) {
     $configSettings = array(
         'easylife_switcher/settings/image_change_callback' => 'ProductMediaManager.destroyZoom();
-ProductMediaManager.createZoom(jQuery(\'#image-main\'));',
+ProductMediaManager.createZoom(jQuery(\'#image-main\'));ProductMediaManager.init()',
         'easylife_switcher/settings/image_selector' => '$(\'image-main\')',
         'easylife_switcher/settings/media_change_callback' => 'ProductMediaManager.destroyZoom();
 ProductMediaManager.createZoom(jQuery(\'#image-main\'));',
