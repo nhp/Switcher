@@ -312,7 +312,7 @@ Easylife.Switcher = Class.create(Product.Config, {
                     }
                     var tier = eval(this.config.tier_selector);
                     if (tier) {
-                        $(tier).update(this.config.tier[product]);
+                        $(tier).replace(this.config.tier[product]);
                     }
                     //if the media block should be changed
                     if (parseInt(this.config.switch_image_type) == 2 &&
