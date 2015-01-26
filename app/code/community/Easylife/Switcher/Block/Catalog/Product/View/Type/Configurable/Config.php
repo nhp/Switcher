@@ -165,6 +165,8 @@ class Easylife_Switcher_Block_Catalog_Product_View_Type_Configurable_Config
         $config['switch_media_callback']    = Mage::getStoreConfig(self::XML_MEDIA_CALLBACK_PATH);
         $config['allow_no_stock_select']    = Mage::getStoreConfigFlag(self::XML_NO_STOCK_SELECT_PATH);
         $config['keep_values']              = Mage::getStoreConfigFlag(self::XML_KEEP_SELECTED_VALUES);
+        $config['tier']                     = $this->getTierPriceInfos();
+        $config['tier_selector']            = "$$('ul.tier-prices')[0]";
 
         $config['autoselect_first']         = /*Mage::getStoreConfigFlag(self::XML_TRANSFORM_PATH) &&*/ Mage::getStoreConfigFlag(self::XML_AUTOSELECT_FIRST_PATH);
         $oldCheck = Mage::registry('old_skip_aleable_check');
@@ -172,6 +174,17 @@ class Easylife_Switcher_Block_Catalog_Product_View_Type_Configurable_Config
             Mage::helper('catalog/product')->setSkipSaleableCheck($oldCheck);
         }
         return Mage::helper('core')->jsonEncode($config);
+    }
+
+
+    public function getTierPriceInfos()
+    {
+        $simpleProducts = $this->getSimpleProducts();
+        $tier = array();
+        foreach ($simpleProducts as $product) {
+            $tier[$product->getId()] = $this->getTierPriceHtml($product);
+        }
+        return $tier;
     }
 
     /**

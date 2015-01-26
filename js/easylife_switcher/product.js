@@ -245,6 +245,7 @@ Easylife.Switcher = Class.create(Product.Config, {
         }
         return 1;
     },
+
     /**
      * keep previously selected values
      * @param element
@@ -308,6 +309,10 @@ Easylife.Switcher = Class.create(Product.Config, {
                                 eval.delay('0.1', this.config.switch_image_callback)
                             }
                         }
+                    }
+                    var tier = eval(this.config.tier_selector);
+                    if (tier) {
+                        $(tier).update(this.config.tier[product]);
                     }
                     //if the media block should be changed
                     if (parseInt(this.config.switch_image_type) == 2 &&
